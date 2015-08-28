@@ -1,5 +1,5 @@
 <F8>  : save file
-<F9>  : save file with sudo permission
+<F9>  : save file with sudo
 <F7>  : Quit file
 <F5>  : Compile & run code
 <F6>  : Debugging code
