@@ -1,3 +1,4 @@
+"leader set
 let mapleader=","
 let g:mapleader=","
 
@@ -164,6 +165,10 @@ set statusline=\ %F%m%r%h\ %w\ \ CWD:\ %r%{getcwd()}%h\ \ \ Line:\ %l\ \ \ Col:\
 :map <F4> :call Push() <CR>
 :nmap <F4> :call Push() <CR>
 :imap <F4> <Esc> :call Push() <CR>
+:map <F12> :call Reset() <cr>
+:imap <F12> <Esc> :call Reset() <cr>
+:nmap <F12> :call Reset() <cr>
+
 
 "tabs
 :nmap T :tabedit
