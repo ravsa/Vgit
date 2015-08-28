@@ -1,5 +1,5 @@
-import os,pickle,subprocess
-print "\ninitializing...! "
+import os,pickle,subprocess,color
+color.printf ('blue',"whitebg","Initializing...! \n")
 data=[]
 dir=subprocess.Popen('echo ~',shell=True,stdout=subprocess.PIPE)
 home_dir=dir.stdout.read()[:-1]
@@ -15,4 +15,4 @@ if not os.path.isdir('.git'):
 create_repo='curl '+'-u '+"'"+data[0]+"'"+':'+"'"+data[1]+"'"+' https://api.github.com/user/repos '+'-d '+'"'+'{'+'\\"name\\"'+':'+'\\"'+cur_dir+'\\"'+'}'+'"'
 os.system(create_repo+' 2>/dev/null >/dev/null')
 os.system('git remote add origin https://github.com/'+data[0]+'/'+cur_dir+'.git'+' >/dev/null 2>/dev/null')
-print "\n Initialized"
+color.printf ("whitebg","green","Initialized")
