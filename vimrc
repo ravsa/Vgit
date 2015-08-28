@@ -205,7 +205,7 @@ endfunc
 func! Theme9()
    :silent colorscheme slate |:new ~/.vim/theme.vim |:$-1 |:delete |:call append(1,'colorscheme slate') |wq
 endfunc
-:map ` :call Theme0()<cr>
+:map 0 :call Theme0()<cr>
 :map 1 :call Theme1()<CR>
 :map 2 :call Theme2()<CR>
 :map 3 :call Theme3()<cr>

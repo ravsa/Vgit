@@ -1,0 +1,39 @@
+<F8>  : save file
+<F9>  : save file with sudo permission
+<F7>  : Quit file
+<F5>  : Compile & run code
+<F6>  : Debugging code
+<F2>  : setup git account && initialize directory (must run once in new directory)
+<F3>  : git Commits
+<F4>  : push the remote repository
+<F12> : reset passwd,username
+
+ctrl + 'a' : starting of line
+ctrl + 'e' : ending of line
+ctrl + 'p' : auto completion (insert mode)
+ctrl + 'j' : move current line downward
+ctrl + 'k' : move current line upward
+ctrl + 'l' : shift size of split window to right
+ctrl + 'h' : shift size of split window to left
+ctrl + 'm' : increase size of current window
+ctrl + 'w' + 'w' :switch b/w split windows
+
+',' + 'n' : split window horizontally ( filename will be the word under cursor)
+',' + 'v' : split window vertically
+
+shift + 't' : open new tab (enter file name)
+shift + 'b' : switch b/w tabs
+shift + 'd' : delete line after cursor
+
+##keys for change themes##
+
+0 : default
+1 : evening
+2 : morning
+3 : desert
+4 : shine
+5 : torte
+6 : zellner
+7 : ron
+8 : elflord
+9 : slate
