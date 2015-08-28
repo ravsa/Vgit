@@ -37,3 +37,5 @@ shift + 'd' : delete line after cursor
 7 : ron
 8 : elflord
 9 : slate
+
+Other inbuilt command and keys working same
