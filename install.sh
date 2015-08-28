@@ -4,9 +4,13 @@ then
    do
       if which expect>>/dev/null
       then
-         cp -rvf vimrc ~/.vimrc
-         cp -rvf vim ~/.vim
-         cp -rvf cheat_sheet.txt ~/
+        cp -rvf vimrc ~/.vimrc
+        cp -rvf vim ~/.vim
+        cp -rvf cheat_sheet.txt ~/
+	echo "Succesfully installed !"
+	sleep 3
+	vim ~/cheet_sheet.txt
+	break;
       else
          echo 'Do you want to install it? [Y/N]'
          read ans
