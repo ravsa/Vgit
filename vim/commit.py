@@ -1,5 +1,6 @@
 import os
-print "Commit: "
+import color
+color.printf ('black','whitebg',"Commit: ")
 txt=''
 while True:
     txt=txt+raw_input()
