@@ -38,4 +38,4 @@ shift + 'd' : delete line after cursor
 8 : elflord
 9 : slate
 
-Other inbuilt command and keys working same
+Other vi/vim inbuilt command and keys working same
