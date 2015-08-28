@@ -13,5 +13,8 @@ Installation:
 :$ ./install.sh
 
 Features:
+features are declare in cheat_sheet.txt file
+
+NOTE:
 you must once have to press <F2> key for  initializing processing in new repo directory.
-other features are declare in cheat_sheet.txt file
+other
