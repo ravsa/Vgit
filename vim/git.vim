@@ -26,3 +26,7 @@ function! Push()
    :pyfile ~/.vim/push.py
    :redraw!
 endfunction
+
+function! Reset()
+   :pyfile ~/.vim/reset.py
+endfunction
