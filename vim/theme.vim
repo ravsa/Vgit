@@ -1,3 +1,3 @@
 func! Theme()
 colorscheme torte
-endfunc
+endfunc!
