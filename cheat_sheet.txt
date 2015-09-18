@@ -17,25 +17,117 @@ ctrl + 'l' : shift size of split window to right
 ctrl + 'h' : shift size of split window to left
 ctrl + 'm' : increase size of current window
 ctrl + 'w' + 'w' :switch b/w split windows
+ctrl + 'w' :delete word before cursor
+
 
 ',' + 'n' : split window horizontally ( filename will be the word under cursor)
 ',' + 'v' : split window vertically
+',' + 't' : bash shell
 
 shift + 't' : open new tab (enter file name)
 shift + 'b' : switch b/w tabs
 shift + 'd' : delete line after cursor
-
+<tab><tab>     :for auto completion(insert mode)
 ##keys for change themes##
 
-0 : default
-1 : evening
-2 : morning
-3 : desert
-4 : shine
-5 : torte
-6 : zellner
-7 : ron
-8 : elflord
-9 : slate
+   <shift> 0 : default
+   <shift> 1 : evening
+   <shift> 2 : morning
+   <shift> 3 : desert
+   <shift> 4 : shine
+   <shift> 5 : torte
+   <shift> 6 : zellner
+   <shift> 7 : ron
+   <shift> 8 : elflord
+   <shift> 9 : slate
+
+##development env for c/c++
+   <enter><enter> :for ';' and enter
+   <tab><tab>     :for auto completion(insert mode)
+   **insert some inbuilt fuctions() to source code
+
+      ',' + mx  :maximum function
+      ',' + mn  :minimum function
+      ',' + gd  :gcd of two no
+      ',' + lm  :lcm of two no( first call gcd )
+      ',' + fi  :add for loop i to N
+      ',' + fj  :add for loop j to N
+      ',' + fk  :add for loop k to N
+      ',' + fx  :add for loop x to N
+      ',' + fy  :add for loop y to N
+      ',' + w   :add while loop to source code
+
+   **some abbreviations
+
+      #i  --> #include<
+      #d  --> #define
+      cl  --> class
+      wh  --> while
+      fr  --> for
+      in  --> int
+      fl  --> float
+      lo  --> long
+      do  --> double
+      ch  --> char
+      st  --> string
+      re  --> return
+      tr  --> try
+      ca  --> catch
+      st  --> static
+      lo  --> long
+      cl  --> class
+      pr  --> private
+      pu  --> public
+      pro --> protected
+      io  --> iostream
+      ma  --> main()
+      [[  --> [][]
+      br  --> break;
+      NL  --> NULL
+      el  --> else
+      c<  --> cout<<
+      en  --> <<endl;
+      c>  --> cin>>
+      vo  --> void
+
+##development env for python
+
+      <tab><tab>   :for auto completion(insert mode)
+
+   **some abbreviations
+
+
+
+       pr  --> print
+       im  --> import
+       de  --> def
+       wh  --> while
+       fo  --> for
+       la  --> lamda
+       ra  --> range(
+       cl  --> class
+       br  --> break
+       con --> continue
+       el  --> else
+       li  --> list(
+       lr  --> list(range(
+       fr  --> from
+       gl  --> global
+       inp --> input(
+       raw --> raw_input(
+       re  --> return
+       wr  --> write
+       sp  --> split
+       tr  --> True
+       fa  --> False
+       hw  --> "Hello World"
+       tr  --> try
+       se  --> self
+       ca  --> catch
+       ex  --> except
+       __  --> __init__(self):
+
+
 
 Other vi/vim inbuilt command and keys working same
+
