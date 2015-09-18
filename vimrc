@@ -2,6 +2,15 @@
 let mapleader=","
 let g:mapleader=","
 
+"closing parentheses
+:inoremap (<space> ()<Esc>a
+:inoremap () ()<Esc>a
+:inoremap ( ()<Esc>i
+:inoremap {<cr> {<CR>}<Esc>ko
+:inoremap [<space> []<Esc>a
+:inoremap [] []<Esc>i
+:inoremap [ []<Esc>i
+
 "save and exit
 :imap <F8> <Esc> :w!<CR>
 :nmap <F8> :w!<CR>
@@ -17,6 +26,8 @@ let g:mapleader=","
 :imap <C-e> <End>
 :map <C-a> <Home>
 :map <C-e> <End>
+:imap <Tab><Tab> <c-p>
+
 
 "moving lines
 :nmap <C-k> :m-2<CR>
@@ -85,6 +96,8 @@ vnoremap $e <esc>`>a"<esc>`<i"<esc>"
 "set compilers and debuggers
 function! Python()
       set omnifunc=pythoncomplete
+      set complete+=k~/.vim/pycomp/pykey.txt
+      :source ~/.vim/pycomp/pyabbr.vim
       :imap <F5> <Esc> :w!<CR>:!clear;python %<CR>
       :nmap <F5> :w!<CR>:!clear;python %<CR>
       :map <F5>  :w!<CR>:!clear;python %<CR>
@@ -97,6 +110,7 @@ function! Python()
    endfunction
 function! Bash()
       set omnifunc=shcomplete
+      set complete+=k~/.vim/bashcomp/bashkey.txt
       :imap <F5> <Esc> :w!<CR>:!clear;chmod +x %;./%<CR>
       :nmap <F5> :w!<CR>:!clear;chmod +x %;./%<CR>
       :map <F5>  :w!<CR>:!clear;chmod +x %;./%<CR>
@@ -106,6 +120,11 @@ function! Bash()
    endfunction
 function! Cpp()
       set omnifunc=cppcomplete
+      "enter
+      :inoremap <cr><cr> ;<cr>
+
+      set complete+=k~/.vim/cppcomp/cppkey.txt
+      :source ~/.vim/cppcomp/cppabbr.vim
       :imap <F5> <Esc> :w!<CR>:!clear;g++ -g -W % && ./a.out<CR>
       :nmap <F5> :w!<CR>:!clear;g++ -g -W % && ./a.out<CR>
       :map <F5>  :w!<CR>:!clear;g++ -g -W % && ./a.out<CR>
@@ -124,6 +143,7 @@ function! C()
    endfunction
 function! Html()
       set omnifunc=htmlcomplete
+      set complete+=k~/.vim/htmlcomp/htmlkey.txt
       :imap <F5> <Esc> :w!<CR>:!clear;firefox %<CR>
       :nmap <F5> :w!<CR>:!clear;firefox %<CR>
       :map <F5>  :w!<CR>:!clear;firefox %<CR>
@@ -205,15 +225,32 @@ endfunc
 func! Theme9()
    :silent colorscheme slate |:new ~/.vim/theme.vim |:$-1 |:delete |:call append(1,'colorscheme slate') |wq
 endfunc
-:map 0 :call Theme0()<cr>
-:map 1 :call Theme1()<CR>
-:map 2 :call Theme2()<CR>
-:map 3 :call Theme3()<cr>
-:map 4 :call Theme4()<cr>
-:map 5 :call Theme5()<cr>
-:map 6 :call Theme6()<cr>
-:map 7 :call Theme7()<cr>
-:map 8 :call Theme8()<cr>
-:map 9 :call Theme9()<cr>
+:map ) :call Theme0()<cr>
+:map ! :call Theme1()<CR>
+:map @ :call Theme2()<CR>
+:map # :call Theme3()<cr>
+:map $ :call Theme4()<cr>
+:map % :call Theme5()<cr>
+:map ^ :call Theme6()<cr>
+:map & :call Theme7()<cr>
+:map * :call Theme8()<cr>
+:map ( :call Theme9()<cr>
 :source ~/.vim/theme.vim
 :call Theme()
+function! Func()
+   :source ~/.vim/bin_c.vim
+   :map <leader>mx :call Max() <cr>
+   :map <leader>mn :call Min() <cr>
+   :map <leader>gd :call Gcd() <cr>
+   :map <leader>lm :call Lcm() <cr>
+   :map <leader>fi :call For_i() <cr>
+   :map <leader>fj :call For_j() <cr>
+   :map <leader>fk :call For_k() <cr>
+   :map <leader>fx :call For_x() <cr>
+   :map <leader>fy :call For_y() <cr>
+   :map <leader>w :call While() <cr>
+endfunction!
+autocmd filetype c :call Func()
+autocmd filetype c :call C_comp()
+autocmd filetype cpp :call Func()
+autocmd filetype cpp :call Cpp_comp()
