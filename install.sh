@@ -7,9 +7,7 @@ then
         cp -rvf vimrc ~/.vimrc
         cp -rvf vim ~/.vim
         cp -rvf cheat_sheet.txt ~/
-	echo "Succesfully installed !"
-	sleep 3
-	vim ~/cheet_sheet.txt
+	echo "Succesfully added !"
 	break;
       else
          echo 'Do you want to install it? [Y/N]'

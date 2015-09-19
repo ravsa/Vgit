@@ -1,7 +1,7 @@
 "leader set
 let mapleader=","
 let g:mapleader=","
-
+set timeoutlen=400
 "closing parentheses
 :inoremap (<space> ()<Esc>a
 :inoremap () ()<Esc>a
@@ -26,8 +26,7 @@ let g:mapleader=","
 :imap <C-e> <End>
 :map <C-a> <Home>
 :map <C-e> <End>
-:imap <Tab><Tab> <c-p>
-
+:imap <space><space> <c-p>
 
 "moving lines
 :nmap <C-k> :m-2<CR>
