@@ -1,42 +1,34 @@
-"leader set
-let mapleader=","
-let g:mapleader=","
-set timeoutlen=400
-"closing parentheses
-:inoremap (<space> ()<Esc>a
-:inoremap () ()<Esc>a
-:inoremap ( ()<Esc>i
-:inoremap {<cr> {<CR>}<Esc>ko
-:inoremap [<space> []<Esc>a
-:inoremap [] []<Esc>i
-:inoremap [ []<Esc>i
-
+filetype off
+call pathogen#infect()
+call pathogen#helptags()
+set laststatus=2
+set statusline+=%{fugitive#statusline()}
+set statusline+=%#warningmsg#
+filetype on
+nmap <leader>r 22<leader>r
+syntax on
+vnoremap . :norm.<cr>
+let mapleader="\<Space>"
+let g:mapleader="\<Space>"
+set foldmethod=indent
+set foldlevel=30
 "save and exit
-:imap <F8> <Esc> :w!<CR>
-:nmap <F8> :w!<CR>
-:map <F8> :w! <CR>
-:imap <F7> <Esc> :q!<CR>
-:nmap <F7> :q!<CR>
-:map <F7> :q! <CR>
-
-"bash shell keys
-:nmap <C-a> <Home>
-:nmap <C-e> <End>
-:imap <C-a> <Home>
-:imap <C-e> <End>
-:map <C-a> <Home>
-:map <C-e> <End>
-:imap <space><space> <c-p>
-
-"moving lines
-:nmap <C-k> :m-2<CR>
-:nmap <C-j> :m+1<CR>
-:vmap <C-k> :m'>+1<CR>'<m
-:vmap <C-j> :m'<-2<cr>'>m
-
-"set some properties
-set nocompatible
-syntax enable
+:map 22 :close! <cr>
+:map 33 :w! <cr>
+:imap 88 <Esc>-yypA
+imap jk <Esc>
+map <c-j> <c-w>j
+map <c-h> <c-w>h
+map <c-k> <c-w>k
+map <c-l> <c-w>l
+:nmap <leader>k :m-2<CR>
+:nmap <Leader>j :m+1<CR>
+map <leader>v :vnew 
+set mat=2
+set tabstop=3
+set sw=3 "shift width
+set expandtab
+set ic
 set encoding=utf8
 set history=1000
 set autoread
@@ -54,28 +46,10 @@ set incsearch
 set lazyredraw
 set magic
 set showmatch
-set mat=2
-set tabstop=3
-set sw=3 "shift width
-set expandtab
-set background=dark
 set smarttab
 set ai "auto indent
 set si "smart indent
 set wrap "wrap lines
-
-"trailing white space
-autocmd BufWritePre * :%s/\s\+$//e
-
-"command for root permission
-command W w !sudo tee % > /dev/null
-:map <F9> :W <CR>
-:imap <F9> <Esc>:W <CR>
-:nmap <F9> :W <CR>
-
-"filetype plugins
-filetype off
-filetype plugin indent on
 
 "set parenthesis/brackets/etc.:
 inoremap $1 ()<esc>i
@@ -92,86 +66,13 @@ vnoremap $$ <esc>`>a"<esc>`<i"<esc>
 vnoremap $q <esc>`>a'<esc>`<i'<esc>
 vnoremap $e <esc>`>a"<esc>`<i"<esc>"
 
-"set compilers and debuggers
-function! Python()
-      set omnifunc=pythoncomplete
-      set complete+=k~/.vim/pycomp/pykey.txt
-      :source ~/.vim/pycomp/pyabbr.vim
-      :imap <F5> <Esc> :w!<CR>:!clear;python %<CR>
-      :nmap <F5> :w!<CR>:!clear;python %<CR>
-      :map <F5>  :w!<CR>:!clear;python %<CR>
-      :imap <F10> <Esc> :w!<CR>:!clear;python3.4 %<CR>
-      :nmap <F10> :w!<CR>:!clear;python3.4 %<CR>
-      :map <F10>  :w!<CR>:!clear;python3.4 %<CR>
-      :imap <F6> <Esc> :w!<CR>:!clear;pdb %<CR>
-      :nmap <F6> :w!<CR>:!clear;pdb %<CR>
-      :map <F6>  :w!<CR>:!clear;pdb %<CR>
-   endfunction
-function! Bash()
-      set omnifunc=shcomplete
-      set complete+=k~/.vim/bashcomp/bashkey.txt
-      :imap <F5> <Esc> :w!<CR>:!clear;chmod +x %;./%<CR>
-      :nmap <F5> :w!<CR>:!clear;chmod +x %;./%<CR>
-      :map <F5>  :w!<CR>:!clear;chmod +x %;./%<CR>
-      :imap <F6> <Esc> :w!<CR>:!clear;bash -x %<CR>
-      :nmap <F6> :w!<CR>:!clear;bash -x %<CR>
-      :map <F6>  :w!<CR>:!clear;bash -x %<CR>
-   endfunction
-function! Cpp()
-      set omnifunc=cppcomplete
-      "enter
-      :inoremap <cr><cr> ;<cr>
-
-      set complete+=k~/.vim/cppcomp/cppkey.txt
-      :source ~/.vim/cppcomp/cppabbr.vim
-      :imap <F5> <Esc> :w!<CR>:!clear;g++ -g -W % && ./a.out<CR>
-      :nmap <F5> :w!<CR>:!clear;g++ -g -W % && ./a.out<CR>
-      :map <F5>  :w!<CR>:!clear;g++ -g -W % && ./a.out<CR>
-      :imap <F6> <Esc> :w!<CR>:!clear;gdb a.out<CR>
-      :nmap <F6> :w!<CR>:!clear;gdb a.out<CR>
-      :map <F6>  :w!<CR>:!clear;gdb a.out<CR>
-   endfunction
-function! C()
-      set omnifunc=ccomplete
-      :imap <F5> <Esc> :w!<CR>:!clear;gcc -g -W % && ./a.out<CR>
-      :nmap <F5> :w!<CR>:!clear;gcc -g -W % && ./a.out<CR>
-      :map <F5>  :w!<CR>:!clear;gcc -g -W % && ./a.out<CR>
-      :imap <F6> <Esc> :w!<CR>:!clear;gdb a.out<CR>
-      :nmap <F6> :w!<CR>:!clear;gdb a.out<CR>
-      :map <F6>  :w!<CR>:!clear;gdb a.out<CR>
-   endfunction
-function! Html()
-      set omnifunc=htmlcomplete
-      set complete+=k~/.vim/htmlcomp/htmlkey.txt
-      :imap <F5> <Esc> :w!<CR>:!clear;firefox %<CR>
-      :nmap <F5> :w!<CR>:!clear;firefox %<CR>
-      :map <F5>  :w!<CR>:!clear;firefox %<CR>
-   endfunction
-autocmd filetype python :call Python()
-autocmd filetype sh :call Bash()
-autocmd filetype c :call C()
-autocmd filetype cpp :call Cpp()
-autocmd filetype html :call Html()
-autocmd filetype javascript :call Html()
-
-"new window and bash shell
-:map <leader>n :new <cword> <cr>
-:map <leader>v :vnew <cword> <cr>
-:map <leader>t :!bash<CR>
-
-"status line
-au insertenter * hi StatusLine ctermfg=darkblue
-au insertleave * hi StatusLine ctermfg=darkgrey
-set laststatus=2
-set statusline=\ %F%m%r%h\ %w\ \ CWD:\ %r%{getcwd()}%h\ \ \ Line:\ %l\ \ \ Col:\ %c
-
 "shifting window size
-:map <C-l> <C-w>>
-:nmap <C-l> <C-w>>
-:map <C-h> <C-w><
-:nmap <C-h> <C-w><
-:nmap <c-m> <C-w>+
-:map <c-m> <C-w>+
+:map <leader>l <C-w>>
+:nmap <leader>l <C-w>>
+:map <leader>h <C-w><
+:nmap <leader>h <C-w><
+:nmap <leader>m <C-w>+
+:map <leader>m <C-w>+
 
 "Github plugin
 :source ~/.vim/git.vim
@@ -187,69 +88,68 @@ set statusline=\ %F%m%r%h\ %w\ \ CWD:\ %r%{getcwd()}%h\ \ \ Line:\ %l\ \ \ Col:\
 :map <F12> :call Reset() <cr>
 :imap <F12> <Esc> :call Reset() <cr>
 :nmap <F12> :call Reset() <cr>
+map <leader>g :GundoToggle<CR>
+au FileType python set omnifunc=pythoncomplete#Complete
+let g:SuperTabDefaultCompletionType = "context"
+set completeopt=menuone,longest,preview
+
+map <leader>n :NERDTreeToggle<CR>
+
+let g:multi_cursor_quit_key='<C-c>'
+nnoremap <C-c> :call multiple_cursors#quit()<CR>
+
+" Execute the tests
+nmap <silent><Leader>tf <Esc>:Pytest file<CR>
+nmap <silent><Leader>tc <Esc>:Pytest class<CR>
+nmap <silent><Leader>tm <Esc>:Pytest method<CR>
+" cycle through test errors
+nmap <silent><Leader>tn <Esc>:Pytest next<CR>
+nmap <silent><Leader>tp <Esc>:Pytest previous<CR>
+nmap <silent><Leader>te <Esc>:Pytest error<CR>
+
+let g:UltiSnipsEditSplit="vertical"
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+
+" Add the virtualenv's site-packages to vim path
+py << EOF
+import os.path
+import sys
+import vim
+if 'VIRTUAL_ENV' in os.environ:
+    project_base_dir = os.environ['VIRTUAL_ENV']
+    sys.path.insert(0, project_base_dir)
+    activate_this = os.path.join(project_base_dir,'bin/activate_this.py')
+    execfile(activate_this, dict(__file__=activate_this))
+EOF
 
 
-"tabs
-:nmap T :tabedit
-:nmap B :tabn <cr>
+let g:ctrlp_map = '<c-p>'
+let g:ctrlp_cmd = 'CtrlP'
+let g:ctrlp_working_path_mode = 'ra'
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip
+set wildignore+=*\\tmp\\*,*.swp,*.zip,*.exe
+let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
+let g:pep8_map='<leader>8'
+filetype plugin on
+filetype indent on
+:colorscheme desert
 
-"Themes
-func! Theme0()
-   :silent colorscheme default |:new ~/.vim/theme.vim |:$-1 |:delete |:call append(1,'colorscheme default') |silent wq!
+"bash shell keys
+:nmap <C-a> <Home>
+:nmap <C-e> <End>
+:imap <C-a> <Home>
+:imap <C-e> <End>
+:map <C-a> <Home>
+:map <C-e> <End>
+func! Python()
+   :abbr phw print "Hello,World!"
+   set complete+=k~/.vim/pykey.txt
 endfunc
-func! Theme1()
-   :silent colorscheme evening |:new ~/.vim/theme.vim |:$-1 |:delete |:call append(1,'colorscheme evening') |wq
+func! Bash()
+   :abbr phw echo "Hello,World!"
 endfunc
-func! Theme2()
-   :silent colorscheme morning |:new ~/.vim/theme.vim |:$-1 |:delete |:call append(1,'colorscheme morning') |wq
-endfunc
-func! Theme3()
-   :silent colorscheme desert |:new ~/.vim/theme.vim |:$-1 |:delete |:call append(1,'colorscheme desert') |wq
-endfunc
-func! Theme4()
-   :silent colorscheme shine |:new ~/.vim/theme.vim |:$-1 |:delete |:call append(1,'colorscheme shine') |wq
-endfunc
-func! Theme5()
-   :silent colorscheme torte |:new ~/.vim/theme.vim |:$-1 |:delete |:call append(1,'colorscheme torte') |wq
-endfunc
-func! Theme6()
-   :silent colorscheme zellner |:new ~/.vim/theme.vim |:$-1 |:delete |:call append(1,'colorscheme zellner') |wq
-endfunc
-func! Theme7()
-   :silent colorscheme ron |:new ~/.vim/theme.vim |:$-1 |:delete |:call append(1,'colorscheme ron') |wq
-endfunc
-func! Theme8()
-   :silent colorscheme elflord |:new ~/.vim/theme.vim |:$-1 |:delete |:call append(1,'colorscheme elflord') |wq
-endfunc
-func! Theme9()
-   :silent colorscheme slate |:new ~/.vim/theme.vim |:$-1 |:delete |:call append(1,'colorscheme slate') |wq
-endfunc
-:map ) :call Theme0()<cr>
-:map ! :call Theme1()<CR>
-:map @ :call Theme2()<CR>
-:map # :call Theme3()<cr>
-:map $ :call Theme4()<cr>
-:map % :call Theme5()<cr>
-:map ^ :call Theme6()<cr>
-:map & :call Theme7()<cr>
-:map * :call Theme8()<cr>
-:map ( :call Theme9()<cr>
-:source ~/.vim/theme.vim
-:call Theme()
-function! Func()
-   :source ~/.vim/bin_c.vim
-   :map <leader>mx :call Max() <cr>
-   :map <leader>mn :call Min() <cr>
-   :map <leader>gd :call Gcd() <cr>
-   :map <leader>lm :call Lcm() <cr>
-   :map <leader>fi :call For_i() <cr>
-   :map <leader>fj :call For_j() <cr>
-   :map <leader>fk :call For_k() <cr>
-   :map <leader>fx :call For_x() <cr>
-   :map <leader>fy :call For_y() <cr>
-   :map <leader>w :call While() <cr>
-endfunction!
-autocmd filetype c :call Func()
-autocmd filetype c :call C_comp()
-autocmd filetype cpp :call Func()
-autocmd filetype cpp :call Cpp_comp()
+autocmd filetype python :call Python()
+autocmd filetype sh :call Bash()
+let g:autopep8_disable_show_diff=1

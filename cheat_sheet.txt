@@ -1,133 +1,80 @@
-<F8>  : save file
-<F9>  : save file with sudo
-<F7>  : Quit file
-<F5>  : Compile & run code
-<F6>  : Debugging code
-<F2>  : setup git account && initialize directory (must run once in new directory)
-<F3>  : git Commits
-<F4>  : push the remote repository
-<F12> : reset passwd,username
+CTRL-R                       {0-9a-z"%#*:=} insert the contents of a register
+CTRL-U              delete all entered characters in the current line
+CTRL-W                 delete word before the cursor
+CTRL-A                   add N to number at/after cursor
+CTRL-X                   subtract N to number at/after cursor
+"{a-zA-Z0-9.%#:-"}             use register {a-zA-Z0-9.%#:-"} for next delete, yank or put (uppercase to append)
+%                  find the  next (curly/square) bracket on
+{count}%              go to N percentage in the file
+&                  repeat last :s
+'{a-zA-Z0-9}             cursor to the first CHAR on the line with mark {a-zA-Z0-9}
+''                 cursor to the first CHAR of the line where the cursor was before the latest jump.
+@:                  repeat the previous ":" command N times
+@@                 repeat the previous @{a-z} N times
+`{a-zA-Z0-9}     cursor to the mark {a-zA-Z0-9}
+m{A-Za-z}                 set mark {A-Za-z} at cursor position
+q:                  edit : command-line in command-line window
+q/                  edit / command-line in command-line window
+CTRL-W |               set window width to N columns
+CTRL-W x               exchange window
 
-ctrl + 'a' : starting of line
-ctrl + 'e' : ending of line
-ctrl + 'p' : auto completion (insert mode)
-ctrl + 'j' : move current line downward
-ctrl + 'k' : move current line upward
-ctrl + 'l' : shift size of split window to right
-ctrl + 'h' : shift size of split window to left
-ctrl + 'm' : increase size of current window
-ctrl + 'w' + 'w' :switch b/w split windows
-ctrl + 'w' :delete word before cursor
+g&                repeat last ":s" on all lines
+g?                Rot13 encoding operator
+gD                 go to definition of word under the cursor
+gT                  go to the previous tab page
+gU{motion}               make Nmove text uppercase
+ga                  print ascii value of character under the
+gd                go to definition of word under the cursor
+gt                  go to the next tab page
+gu{motion}               make Nmove text lowercase
+Ctrl-p            ctrl-p search
+<space>g           gundo revision history
+<space>n           nerdtree view
+      ***
+      " t: open in new tab
+      " T: open in new tab silently
+      " i: open in split
+      " s: open in vsplit
+      " f: file filters
+      " f: files
+<space>pw         python documents of module 
+<space>tf Pytest file
+<space>tc Pytest class    
+<space>tm Pytest method
+<space>tn Pytest next
+<space>tp Pytest previous
+<space>te Pytest error
+"<tab>"    auto  completeopt
+"<tab>b"   insert backward
+"<tab>z"   insert foreward
+ctrl-n     select multiple cursor
+ctrl-p     previous cursor
+ctrl-x     next cursor 
+<space>r  run program
+change around
+***
+   cs'" change ' to "
+   cst" go full circle
+   {ds" remove delimeters entirely}
+   ysiw] put [] around word (iw,aw is test object)
+   yss) wrap entire line with parentheses
+   dss) delete the parentheses
 
-
-',' + 'n' : split window horizontally ( filename will be the word under cursor)
-',' + 'v' : split window vertically
-',' + 't' : bash shell
-
-shift + 't' : open new tab (enter file name)
-shift + 'b' : switch b/w tabs
-shift + 'd' : delete line after cursor
-<tab><tab>     :for auto completion(insert mode)
-##keys for change themes##
-
-   <shift> 0 : default
-   <shift> 1 : evening
-   <shift> 2 : morning
-   <shift> 3 : desert
-   <shift> 4 : shine
-   <shift> 5 : torte
-   <shift> 6 : zellner
-   <shift> 7 : ron
-   <shift> 8 : elflord
-   <shift> 9 : slate
-
-##development env for c/c++
-   <enter><enter> :for ';' and enter
-   <tab><tab>     :for auto completion(insert mode)
-   **insert some inbuilt fuctions() to source code
-
-      ',' + mx  :maximum function
-      ',' + mn  :minimum function
-      ',' + gd  :gcd of two no
-      ',' + lm  :lcm of two no( first call gcd )
-      ',' + fi  :add for loop i to N
-      ',' + fj  :add for loop j to N
-      ',' + fk  :add for loop k to N
-      ',' + fx  :add for loop x to N
-      ',' + fy  :add for loop y to N
-      ',' + w   :add while loop to source code
-
-   **some abbreviations
-
-      #i  --> #include<
-      #d  --> #define
-      cl  --> class
-      wh  --> while
-      fr  --> for
-      in  --> int
-      fl  --> float
-      lo  --> long
-      do  --> double
-      ch  --> char
-      st  --> string
-      re  --> return
-      tr  --> try
-      ca  --> catch
-      st  --> static
-      lo  --> long
-      cl  --> class
-      pr  --> private
-      pu  --> public
-      pro --> protected
-      io  --> iostream
-      ma  --> main()
-      [[  --> [][]
-      br  --> break;
-      NL  --> NULL
-      el  --> else
-      c<  --> cout<<
-      en  --> <<endl;
-      c>  --> cin>>
-      vo  --> void
-
-##development env for python
-
-      <tab><tab>   :for auto completion(insert mode)
-
-   **some abbreviations
+jk          for <esc> in insert mode
+33          for saving a file
+22          for closing a split window
+ctrl-i         for latest jump position of file
+ctrl-o         for last jump position of file
+88          for copy the upper line
+<space>j        move a line down
+<space>k          move a line up
+***shifting window size
+<space>h
+<space>l
+<space>m
+<F2> for initialize setup git repo(must run)
+<F3> for commit
+<F4> for push all repos to remote server github.com
 
 
-
-       pr  --> print
-       im  --> import
-       de  --> def
-       wh  --> while
-       fo  --> for
-       la  --> lamda
-       ra  --> range(
-       cl  --> class
-       br  --> break
-       con --> continue
-       el  --> else
-       li  --> list(
-       lr  --> list(range(
-       fr  --> from
-       gl  --> global
-       inp --> input(
-       raw --> raw_input(
-       re  --> return
-       wr  --> write
-       sp  --> split
-       tr  --> True
-       fa  --> False
-       hw  --> "Hello World"
-       tr  --> try
-       se  --> self
-       ca  --> catch
-       ex  --> except
-       __  --> __init__(self):
-
-
-
-Other vi/vim inbuilt command and keys working same
 
